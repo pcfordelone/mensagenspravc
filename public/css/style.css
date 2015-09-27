@@ -1,0 +1,76 @@
+html, body { height:100%; margin:0 !important; padding:0 !important; font-family: 'Roboto', sans-serif; }
+
+img { margin: 0 !important; padding: 0 !important;}
+
+/* Header */
+
+#header {
+    background: #000000;
+    box-shadow: 0 1px 5px rgba(0,0,0,.5);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#header .topo {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+#header .menu {
+    margin: 0; padding: 5px;
+    background: #000000;
+    border: none;
+}
+#header .topo a.navbar-brand {
+    /*margin: 0 !important;*/
+    /*padding: 0 15px 0 15px !important;*/
+}
+
+#content {
+    margin: 0 0 60px 0;
+}
+
+#content h3 {
+    padding: 20px 0 0 0;
+}
+#content img.produto {
+    max-height: 200px;
+}
+
+#content .post {
+    margin: 20px 20px 0 0;
+    float: left;
+}
+
+#content .post hr {
+    margin: 10px;
+}
+
+#content .post figure {
+    max-width: 350px;
+    background: #ffffff;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    border: 1px solid lightgrey;
+    box-shadow: 0 0 3px rgba(0,0,0,.2);
+    transition: box-shadow 0.3s linear 0.1s;
+}
+#content .post figure:hover {
+    box-shadow: 0 0 10px rgba(25,121,240,.8);
+    cursor: pointer;
+}
+#content .post figcaption {
+    padding: 15px 15px 0 15px;
+    color: #8c8c8c;
+}
+#content .post figure img {
+    position: relative;
+    max-width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+#content .post figure p {
+    padding: 0 15px;
+}
+#content .post figure a {
+    padding: 0 15px;
+}
