@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h3>Criar novo post!!!</h3>
+    <h3>Editar Post</h3>
 
     @if ($errors->any())
         <ul class="alert">
@@ -14,31 +14,35 @@
 
     {!! Form::open(['enctype' => 'multipart/form-data']) !!}
 
-            <!-- Nome Form Input -->
+        <!-- Nome Form Input -->
         <div class="form-group">
             {!! Form::label('name', 'Nome:') !!}
-            {!! Form::text('name', null, ['class'=>'form-control']) !!}
+            {!! Form::text('name', $post->name, ['class'=>'form-control']) !!}
         </div>
 
         <!-- Category Form Input -->
         <div class="form-group">
             {!! Form::label('category_id', 'Categoria:') !!}
-            {!! Form::select('category_id', $categories, null, ['class'=>'form-control']) !!}
+            {!! Form::select('category_id', $categories, $post->category, ['class'=>'form-control']) !!}
         </div>
 
         <!-- Image Form Input -->
         <div class="form-group">
             {!! Form::label('img', 'Imagem:') !!}
             {!! Form::file('img', null, ['class'=>'form-control']) !!}
+
+            <br/>
+            <strong>Imagem Atual:</strong><br/>
+            <img src="{{ url('uploads/'.$post->image) }}" />
         </div>
 
         <!-- Description Form Input -->
         <div class="form-group">
             {!! Form::label('description', 'Descrição:') !!}
-            {!! Form::textarea('description', null, ['class'=>'form-control']) !!}
+            {!! Form::textarea('description', $post->description, ['class'=>'form-control']) !!}
         </div>
 
-        {!! Form::submit('Adicionar Post', ['class'=>'btn btn-primary']) !!}
+        {!! Form::submit('Atualizar Produto', ['class'=>'btn btn-primary']) !!}
 
         {!! Form::close() !!}
 

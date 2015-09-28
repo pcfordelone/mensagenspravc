@@ -44,15 +44,14 @@
                             <li class="active"><a href="#">Home</a></li>
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<strong class="caret"></strong></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Posts<strong class="caret"></strong></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Mensagens Recentes</a></li>
-
+                                    <li><a href="{{ route('post.create') }}">Criar Novo Post</a></li>
+                                    <li><a href="{{ route('categories.create') }}">Criar Nova Categoria</a></li>
                                     <li class="divider"></li>
-
-                                    <li><a href="#">Paz e Amor</a></li>
-                                    <li><a href="#">Religião</a></li>
-                                    <li><a href="#">Futebol</a></li>
+                                    <li><a href="{{ route('posts.index') }}">Posts</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ route('categories.index') }}">Categorias</a></li>
                                 </ul>
                             </li>
                         </ul>

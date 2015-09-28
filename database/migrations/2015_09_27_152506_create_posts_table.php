@@ -16,7 +16,9 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->text('description');
-            $table->boolean('featured');
+            $table->boolean('featured')->nullable();
+            $table->string('image', 10)->nullable();
+            $table->string('img_extension', 5)->nullable();
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@
 
     <hr/>
 
-    <a href="{{ route('posts.create') }}">
+    <a href="{{ route('post.create') }}">
         <button class="btn btn-primary">
             Criar Novo Post
         </button>
@@ -19,7 +19,8 @@
             <th>ID</th>
             <th>Nome</th>
             <th>Categoria</th>
-            <th class="col-md-6">Descrição</th>
+            <th>Imagem</th>
+            <th class="col-md-4">Descrição</th>
             <th>Ação</th>
         </tr>
 
@@ -28,12 +29,13 @@
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->name }}</td>
                 <td>{{ $post->category->name }}</td>
+                <td><img width="200px" src="{{ url('uploads/' . $post->image) }}"</td>
                 <td>{{ $post->description }}</td>
                 <td>
-                    <a href="{{ route('categories.create', ['id'=>$post->id]) }}">
+                    <a href="{{ route('post.edit', ['id'=>$post->id]) }}">
                         <button class="btn btn-primary">Editar</button>
                     </a>
-                    <a href="#">
+                    <a href="{{ route('post.destroy', ['id' => $post->id ]) }}">
                         <button class="btn btn-danger">Apagar</button>
                     </a>
                 </td>

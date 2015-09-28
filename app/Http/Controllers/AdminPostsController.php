@@ -7,6 +7,8 @@ use FRD\PostCategory;
 use Illuminate\Http\Request;
 use FRD\Http\Requests;
 use FRD\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class AdminPostsController extends Controller
 {
@@ -52,20 +54,21 @@ class AdminPostsController extends Controller
     {
         $input = $request->all();
         $post = $this->model->fill($input);
+
+        if (file_exists($request->file('img'))) {
+            $file = $request->file('img');
+            $extension = $file->getClientOriginalExtension();
+            $image = $post['incrementing'] . '.' . $extension;
+
+            Storage::disk('public_local')->put($image, File::get($file));
+
+            $post->image = $image;
+            $post->img_extension = $extension;
+        }
+
         $post->save();
 
         return redirect()->route('posts.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -74,9 +77,12 @@ class AdminPostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PostCategory $postCategory, $id)
     {
-        //
+        $post = $this->model->findOrNew($id);
+        $categories = $postCategory->lists('name','id');
+
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     /**
@@ -88,7 +94,22 @@ class AdminPostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = $this->model->findOrNew($id);
+
+        if (file_exists($request->file('img'))) {
+            $file = $request->file('img');
+            $extension = $file->getClientOriginalExtension();
+            $image = $post->id . '.' . $extension;
+
+            Storage::disk('public_local')->put($image, File::get($file));
+
+            $post->image = $image;
+            $post->img_extension = $extension;
+        }
+
+        $post->update($request->all());
+
+        return redirect(route('posts.index'));
     }
 
     /**
@@ -99,6 +120,15 @@ class AdminPostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->model->findOrNew($id)->delete();
+
+        return redirect(route('posts.index'));
+    }
+
+    public function imagesIndex($id)
+    {
+        $post = $this->model->findOrNew($id);
+
+        return view('posts.image', compact('post'));
     }
 }
