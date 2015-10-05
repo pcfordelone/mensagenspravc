@@ -23,7 +23,7 @@
         <!-- Category Form Input -->
         <div class="form-group">
             {!! Form::label('category_id', 'Categoria:') !!}
-            {!! Form::select('category_id', $categories, $post->category, ['class'=>'form-control']) !!}
+            {!! Form::select('category_id', $categories, $post->category->id, ['class'=>'form-control']) !!}
         </div>
 
         <!-- Image Form Input -->

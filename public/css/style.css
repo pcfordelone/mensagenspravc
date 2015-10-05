@@ -39,6 +39,7 @@ img { margin: 0 !important; padding: 0 !important;}
 #content .post {
     margin: 20px 20px 0 0;
     float: left;
+    display: block;
 }
 
 #content .post hr {
@@ -47,6 +48,7 @@ img { margin: 0 !important; padding: 0 !important;}
 
 #content .post figure {
     max-width: 350px;
+    min-height: 540px;
     background: #ffffff;
     border-radius: 15px;
     padding-bottom: 20px;

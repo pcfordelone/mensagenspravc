@@ -41,17 +41,17 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home</a></li>
+                            <li class="active"><a href="{{ route('admin.posts.index') }}">Home</a></li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Posts<strong class="caret"></strong></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('post.create') }}">Criar Novo Post</a></li>
-                                    <li><a href="{{ route('categories.create') }}">Criar Nova Categoria</a></li>
+                                    <li><a href="{{ route('admin.post.create') }}">Criar Novo Post</a></li>
+                                    <li><a href="{{ route('admin.categories.create') }}">Criar Nova Categoria</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="{{ route('posts.index') }}">Posts</a></li>
+                                    <li><a href="{{ route('admin.posts.index') }}">Posts</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="{{ route('categories.index') }}">Categorias</a></li>
+                                    <li><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
                                 </ul>
                             </li>
                         </ul>

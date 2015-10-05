@@ -8,6 +8,7 @@ class PostCategory extends Model
 {
     protected $fillable = [
         'name',
+        'datafilter',
         'description'
     ];
 

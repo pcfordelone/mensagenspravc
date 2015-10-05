@@ -6,7 +6,7 @@
 
     <hr/>
 
-    <a href="{{ route('categories.create') }}">
+    <a href="{{ route('admin.categories.create') }}">
         <button class="btn btn-primary">
             Criar Nova Categoria
         </button>
@@ -28,10 +28,10 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->description }}</td>
                 <td>
-                    <a href="{{ route('categories.create', ['id'=>$category->id]) }}">
+                    <a href="{{ route('admin.categories.edit', ['id'=>$category->id]) }}">
                         <button class="btn btn-primary">Editar</button>
                     </a>
-                    <a href="{{ route('categories.destroy', ['id'=>$category->id]) }}">
+                    <a href="{{ route('admin.categories.destroy', ['id'=>$category->id]) }}">
                         <button class="btn btn-danger">Apagar</button>
                     </a>
                 </td>

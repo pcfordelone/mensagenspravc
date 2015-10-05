@@ -58,7 +58,7 @@ class AdminPostsController extends Controller
         if (file_exists($request->file('img'))) {
             $file = $request->file('img');
             $extension = $file->getClientOriginalExtension();
-            $image = $post['incrementing'] . '.' . $extension;
+            $image = uniqid("imagem_") . '.' . $extension;
 
             Storage::disk('public_local')->put($image, File::get($file));
 
@@ -68,7 +68,7 @@ class AdminPostsController extends Controller
 
         $post->save();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -107,9 +107,9 @@ class AdminPostsController extends Controller
             $post->img_extension = $extension;
         }
 
-        $post->update($request->all());
+        $post->update($request->all(),$id);
 
-        return redirect(route('posts.index'));
+        return redirect(route('admin.posts.index'));
     }
 
     /**

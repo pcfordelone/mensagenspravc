@@ -1,3 +1,14 @@
+AddHandler php56-script .php
+suPHP_ConfigPath /home/mensagenspravc/
+
+AuthUserFile /home/mensagenspravc/public/.htpasswd
+AuthGroupFile /dev/null
+AuthName Restrito
+AuthType Basic
+<Limit GET POST>
+require user admin
+</Limit>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews

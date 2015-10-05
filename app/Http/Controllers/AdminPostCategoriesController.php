@@ -51,7 +51,7 @@ class AdminPostCategoriesController extends Controller
         $category = $this->model->fill($input);
         $category->save();
 
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
 
     }
 
@@ -79,7 +79,7 @@ class AdminPostCategoriesController extends Controller
     {
         $this->model->findOrNew($id)->update($request->all());
 
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -92,6 +92,6 @@ class AdminPostCategoriesController extends Controller
     {
         $this->model->findOrNew($id)->delete();
 
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 }

@@ -14,20 +14,26 @@
 
     {!! Form::open() !!}
 
-            <!-- Nome Form Input -->
-        <div class="form-group">
-            {!! Form::label('name', 'Nome:') !!}
-            {!! Form::text('name', $category->name, ['class'=>'form-control']) !!}
-        </div>
+    <!-- Nome Form Input -->
+    <div class="form-group">
+        {!! Form::label('name', 'Nome:') !!}
+        {!! Form::text('name', $category->name, ['class'=>'form-control']) !!}
+    </div>
 
-        <!-- Description Form Input -->
-        <div class="form-group">
-            {!! Form::label('description', 'Descrição:') !!}
-            {!! Form::textarea('description', $category->description, ['class'=>'form-control']) !!}
-        </div>
+    <!-- Data-filter Form Input -->
+    <div class="form-group">
+        {!! Form::label('datafilter', 'Data filter:') !!}
+        {!! Form::text('datafilter', $category->datafilter, ['class'=>'form-control']) !!}
+    </div>
 
-        {!! Form::submit('Adicionar Produto', ['class'=>'btn btn-primary']) !!}
+    <!-- Description Form Input -->
+    <div class="form-group">
+        {!! Form::label('description', 'Descrição:') !!}
+        {!! Form::textarea('description', $category->description, ['class'=>'form-control']) !!}
+    </div>
 
-        {!! Form::close() !!}
+    {!! Form::submit('Adicionar Categoria', ['class'=>'btn btn-primary']) !!}
+
+    {!! Form::close() !!}
 
 @endsection
