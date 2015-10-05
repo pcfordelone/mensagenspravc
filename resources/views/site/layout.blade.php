@@ -4,32 +4,31 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta property="og:url"           content="http://www.br-posts.com.br/your-page.html" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Your Website Title" />
-    <meta property="og:description"   content="Your description" />
-    <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
-
-
-    <title>Mensagens Pra Vc!!!</title>
-
     <meta name="description" content="">
     <meta name="author" content="Fordelone Solutions">
 
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/animate.min.css" rel="stylesheet">
-    <link href="/css/owl.carousel.css" rel="stylesheet">
-    <link href="/css/owl.transitions.css" rel="stylesheet">
-    <link href="/css/prettyPhoto.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/responsive.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet"/>
+    @if (isset($post))
+        <title>Mensagens Pra Vc - {{ $post->name }}</title>
+
+        <meta property="og:locale" content="pt_BR">
+        <meta property="og:url" content={{ url('http://localhost:8000/post'.$post->id) }}>
+        <meta property="og:title" content={{ 'Mensagens pra vc - '.$post->name }}>
+        <meta property="og:site_name" content="Mensagens Pra Vc!!!">
+        <meta property="og:description" content={{ $post->description }}>
+        <meta property="og:image" content={{ url('http://localhost:8000/uploads/'.$post->image) }}>
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="500"> /** PIXELS **/
+        <meta property="og:image:height" content="500"> /** PIXELS **/
+    @else
+        <title>Mensagens Pra Vc!!!</title>
+    @endif
+
+
+    <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
 
 </head>
 <body>
@@ -94,6 +93,8 @@
         </div>
     </div>
 </section>
+
+{{--<script src="{{ elixir('js/all.js') }}"--}}
 
 <script src="/js/jquery.js"></script>
 <script src="/js/bootstrap.min.js"></script>

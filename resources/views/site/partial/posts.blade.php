@@ -12,7 +12,7 @@
                         </figcaption>
                         <hr/>
                         <p>Compartilhe:</p>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/{{ $post->id }}/post">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/post/{{ $post->id }}">
                             <button class="btn btn-primary btn-sm">
                                 <i class="fa fa-facebook"></i>
                                 facebook
